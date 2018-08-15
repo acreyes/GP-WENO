@@ -1,0 +1,63 @@
+# Please put your runtime parameters: 
+# name, and a space, followed by values 
+
+# sim variables
+sim_name '3DRP_200_GPR3_sig3_ell12'
+sim_fixDt .false.
+sim_cfl 0.3
+sim_tmax 0.53
+sim_nstep 1
+sim_nlim  .false.
+sim_outputIntervalTime 0.1
+sim_riemann 'hllc'
+sim_limiter 'mc'
+sim_charLimiting .true.
+sim_WENO '5'               #'5' or 'Z'
+sim_mval 2		   #ROC power for betas'
+sim_WENeps 1.e-36
+sim_order 10
+sim_RK .true.
+sim_Torder 3
+sim_dt 0.001
+
+gp_kernel 'SE'
+gp_quad 'exact'
+gp_radius 3
+gp_ell 0.
+gp_eldel 12.
+gp_sigdel 3.
+
+# grid variables
+gr_ngc 8
+gr_nx 200
+gr_ny 200
+gr_nz 200
+gr_xbeg -1.
+gr_xend 1.
+gr_ybeg -1.
+gr_yend 1.0
+gr_zbeg -1.
+gr_zend 1.0
+gr_radius 1.5
+
+# problem specific physical IC
+sim_icType '3DRP'
+
+sim_gamma 1.4
+sim_smallPres 1.e-12
+
+# BC type
+sim_bcTypeX 'outflow'
+sim_bcTypeY 'outflow'
+sim_bcTypeZ 'outflow'
+
+# block sizes
+bl_iProcs 4
+bl_jProcs 4
+bl_kProcs 2
+
+# IO frequency
+sim_hdf5 .true.
+sim_ioTfreq .3 #real
+sim_ioNfreq -1    #positive integer; zero or negative if not used
+
