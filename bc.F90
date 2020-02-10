@@ -178,7 +178,7 @@ contains
 
        if (bl_j == bl_jProcs) then
           do j = gr_iend(YDIM)+1, gr_imax(YDIM)
-             loc_buffT(:,:,j,:) = V(:, gr_ibeg(XDIM):gr_iend(XDIM), gr_iend(YDIM), &
+             loc_buffT(:,:,j-gr_iend(YDIM),:) = V(:, gr_ibeg(XDIM):gr_iend(XDIM), gr_iend(YDIM), &
                   gr_ibeg(ZDIM):gr_iend(ZDIM) )
           end do
        end if
@@ -220,7 +220,7 @@ contains
        
        if (bl_k == bl_kProcs) then
           do k = gr_iend(ZDIM)+1, gr_imax(ZDIM)
-             loc_buffU(:,:,:,k) = V(:,gr_ibeg(XDIM):gr_iend(XDIM), &
+             loc_buffU(:,:,:,k-gr_iend(ZDIM)) = V(:,gr_ibeg(XDIM):gr_iend(XDIM), &
                   gr_ibeg(YDIM):gr_iend(YDIM), &
                   gr_iend(ZDIM))
           end do
